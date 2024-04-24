@@ -1,0 +1,53 @@
+@font-face {
+    font-family: "Degular";
+    src: url("../fonts/fonnts.com-DegularDisplayDemo-Light.otf") format("otf"),
+    url("../fonts/fonnts.com-DegularDisplayDemo-LightItalic.otf") format("otf"),
+    url("../fonts/fonnts.com-DegularDisplayDemo-LightItalic.otf") format("truetype");
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: "Degular";
+    src: url("../fonts/fonnts.com-DegularDisplayDemo-Medium.otf") format("otf"),
+    url("../fonts/fonnts.com-DegularDisplayDemo-MediumItalic.otf") format("otf"),
+    url("../fonts/fonnts.com-DegularDisplayDemo-MediumItalic.otf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Degular";
+    src: url("../fonts/fonnts.com-DegularDisplayDemo-Medium.otf") format("otf"),
+    url("../fonts/fonnts.com-DegularDisplayDemo-MediumItalic.otf") format("otf"),
+    url("../fonts/fonnts.com-DegularDisplayDemo-MediumItalic.otf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Degular";
+    src: url("../fonts/fonnts.com-DegularDisplayDemo-Bold.otf") format("otf"),
+    url("../fonts/fonnts.com-DegularDisplayDemo-BoldItalic.otf") format("otf"),
+    url("../fonts/fonnts.com-DegularDisplayDemo-BoldItalic.otf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+    font-style: italic;
+}
+
+
+
+@font-face {
+    font-family: "Degular";
+    src: url("../fonts/fonnts.com-DegularDisplayDemo-Black.otf") format("otf"),
+    url("../fonts/fonnts.com-DegularDisplayDemo-BlackItalic.otf") format("otf"),
+    url("../fonts/fonnts.com-DegularDisplayDemo-BlackItalic.otf") format("truetype");
+    font-weight: 900;
+    font-display: swap;
+    font-style: italic;
+}
