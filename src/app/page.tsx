@@ -239,7 +239,9 @@ const CustomalModal = () => {
   const [startDate, setStartDate] = useState<Date | null>(today);
   const [endDate, setEndDate] = useState<Date | null>(today);
   const [showCard, setShowCard] = useState(false);
-  const [checkboxes, setCheckboxes] = useState({
+  const [checkboxes, setCheckboxes] = useState<{
+    [key: string]: boolean;
+  }>({
     storeTransaction: false,
     getTipped: false,
     withdrawals: false,
@@ -247,11 +249,23 @@ const CustomalModal = () => {
     cashbacks: false,
     referAndEarn: false,
   });
+  const [showCards, setShowCards] = useState(false);
+  const [checkboxess, setCheckboxess] = useState<{
+    [key: string]: boolean;
+  }>({
+    successful: false,
+    pending: false,
+    failed: false,
+  });
   const handleCheckboxChange = (event: any) => {
     const { name, checked } = event.target;
     setCheckboxes({ ...checkboxes, [name]: checked });
   };
 
+  const handleCheckboxChanges = (event: any) => {
+    const { name, checked } = event.target;
+    setCheckboxess({ ...checkboxess, [name]: checked });
+  };
   const handleSave = () => {
     // Handle saving the date range state
     console.log("Start Date:", startDate);
@@ -261,6 +275,9 @@ const CustomalModal = () => {
   const toggleCard = () => {
     setShowCard(!showCard);
   };
+  const toggleCards = () => {
+    setShowCards(!showCards);
+  };
 
   // const handleCheckboxChange = (event) => {
   //   const { name, checked } = event.target;
@@ -269,11 +286,17 @@ const CustomalModal = () => {
   //     [name]: checked,
   //   });
   // };
+  const checkedItems = Object.keys(checkboxes).filter((key) => checkboxes[key]);
+  const checkedItemss = Object.keys(checkboxess).filter(
+    (key) => checkboxess[key]
+  );
+  const expandIconClass = showCard ? "rotate-180" : "";
+  const expandIconClasss = showCard ? "rotate-180" : "";
   return (
     <>
       {modalOpen && (
         <div className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white w-[456px] rounded-[20px] p-6 h-[500px]">
+          <div className="bg-white w-[456px] rounded-[20px] p-6 h-[600px]">
             {/* Your modal content here */}
             <div className="flex flex-col gap-[22.5px]">
               <div className="px-[17px] flex justify-between">
@@ -339,8 +362,13 @@ const CustomalModal = () => {
                   Transaction type
                 </label>
                 <div className="w-full bg-graylight h-[48px] rounded-[12px]">
+                  <span className="flex justify-start items-center px-4 pt-3 absolute">
+                    {checkedItems.map((item) => (
+                      <p key={item}>{item}</p>
+                    ))}
+                  </span>
                   <span
-                    className="flex justify-end px-4 pt-4 cursor-pointer"
+                    className={`flex justify-end px-4 cursor-pointer pt-4 ${expandIconClass}`}
                     onClick={toggleCard}
                   >
                     {" "}
@@ -415,6 +443,63 @@ const CustomalModal = () => {
                       />{" "}
                       <p className="font-degular text-[16px] font-semibold text-black-2">
                         Refer & Earn
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div className="flex flex-col">
+                <label className="font-degular text-black-2 font-semibold text-[16px]">
+                  Transaction status
+                </label>
+                <div className="w-full bg-graylight h-[48px] rounded-[12px]">
+                  <span className="flex justify-start items-center px-4 pt-3 absolute">
+                    {checkedItemss.map((item) => (
+                      <p key={item}>{item}</p>
+                    ))}
+                  </span>
+                  <span
+                    className={`flex justify-end px-4 cursor-pointer pt-4 ${expandIconClasss}`}
+                    onClick={toggleCards}
+                  >
+                    {" "}
+                    <Expand />
+                  </span>
+                </div>
+                {showCards && (
+                  <div className="bg-white p-4 pt-2 rounded-lg h-[] w-[412px] shadow-lg flex flex-col ">
+                    {/* Your card content here */}
+                    <div className="flex flex-row gap-3">
+                      <input
+                        type="checkbox"
+                        name="successful"
+                        checked={checkboxess.succesful}
+                        onChange={handleCheckboxChanges}
+                      />{" "}
+                      <p className="font-degular text-[16px] font-semibold text-black-2">
+                        succesful
+                      </p>
+                    </div>
+                    <div className="flex flex-row gap-3">
+                      <input
+                        type="checkbox"
+                        name="pending"
+                        checked={checkboxess.pending}
+                        onChange={handleCheckboxChange}
+                      />{" "}
+                      <p className="font-degular text-[16px] font-semibold text-black-2">
+                        pending
+                      </p>
+                    </div>
+                    <div className="flex flex-row gap-3">
+                      <input
+                        type="checkbox"
+                        name="failed"
+                        checked={checkboxess.failed}
+                        onChange={handleCheckboxChanges}
+                      />{" "}
+                      <p className="font-degular text-[16px] font-semibold text-black-2">
+                        failed
                       </p>
                     </div>
                   </div>
