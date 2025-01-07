@@ -291,7 +291,7 @@ const CustomalModal = () => {
     (key) => checkboxess[key]
   );
   const expandIconClass = showCard ? "rotate-180" : "";
-  const expandIconClasss = showCard ? "rotate-180" : "";
+  const expandIconClasss = showCards ? "rotate-180" : "";
   return (
     <>
       {modalOpen && (

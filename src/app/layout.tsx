@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import "./globals.css";
 // import "@/css/Degular.css"
 import "@/css/Degular.css";
+// import { Geist, Geist_Mono, Lato } from "next/font/google";
 import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
 
